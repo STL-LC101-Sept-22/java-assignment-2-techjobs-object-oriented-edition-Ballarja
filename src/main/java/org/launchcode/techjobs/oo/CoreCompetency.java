@@ -20,9 +20,7 @@ public class CoreCompetency {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public CoreCompetency() {
         this.id = nextId;
