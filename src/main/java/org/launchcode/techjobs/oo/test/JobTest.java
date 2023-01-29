@@ -44,6 +44,14 @@ public class JobTest {
 
     }
 
+    @Test
+    public void testJobsForEquality(){
+        Job job4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertFalse(job4.equals(job5));
+    }
+
 
 
 }
