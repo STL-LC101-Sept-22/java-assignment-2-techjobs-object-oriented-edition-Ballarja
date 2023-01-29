@@ -28,14 +28,14 @@ public class JobTest {
     public void testJobConstructorSetsAllFields(){
         Job job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        //Test that the class of the field is correct
+        //Test that the value of the field is correct
         assertEquals("Product tester", job3.getName());
         assertEquals("ACME", job3.getEmployer().getValue());
         assertEquals("Desert", job3.getLocation().getValue());
         assertEquals("Quality control", job3.getPositionType().getValue());
         assertEquals("Persistence", job3.getCoreCompetency().getValue());
 
-        //Test that the value of the field is correct
+        //Test that the class of the field is correct
         assertTrue(job3.getName() instanceof String);
         assertTrue(job3.getEmployer() instanceof Employer);
         assertTrue(job3.getLocation() instanceof Location);
@@ -50,6 +50,11 @@ public class JobTest {
         Job job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertFalse(job4.equals(job5));
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+
     }
 
 
