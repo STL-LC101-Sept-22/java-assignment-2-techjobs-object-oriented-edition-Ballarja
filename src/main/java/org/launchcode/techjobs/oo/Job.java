@@ -93,27 +93,52 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+
     @Override
     public String toString() {
-        String jobData = "ID: " + id + '\n' +;
-        return '\n'+
 
-                "Name: " + name + '\n' +
-                "Employer: " + employer + '\n' +
-                "Location: " + location + '\n' +
-                "Position Type: " + positionType + '\n' +
-                "Core Competency: " + coreCompetency + '\n';
+        String idLine = "ID: " + id;
+        String nameLine = "Name: " + name;
+        String employerLine = "Employer: " + employer;
+        String locationLine = "Location: " + location;
+        String positionTypeLine = "Position Type: " + positionType;
+        String coreCompetencyLine = "Core Competency: " + coreCompetency;
+
+        if (name == null) {
+            nameLine = "Name: Data not available";
+        } else {
+            nameLine = "Name: " + name;
+        }
+
+        if (employer == null || employer.getValue() == null) {
+            employerLine = "Employer: Data not available";
+        } else {
+            employerLine = "Employer: " + employer;
+        }
+        if (location == null || location.getValue() == null) {
+            locationLine = "Location: Data not available";
+        } else {
+            locationLine = "Location: " + location;
+        }
+        if (positionType == null || positionType.getValue() == null) {
+            positionTypeLine = "Position Type: Data not available";
+        } else {
+            positionTypeLine = "Position Type: " + positionType;
+        }
+
+        if (coreCompetency == null || coreCompetency.getValue() == null) {
+            coreCompetencyLine = "Core Competency: Data not available";
+        } else {
+            coreCompetencyLine = "Core Competency: " + coreCompetency;
+        }
+
+
+        return "\n" +
+                "ID: " + this.id +
+                "\nName: " + this.name +
+                "\nEmployer: " + this.employer.getValue() +
+                "\nLocation: " + this.location.getValue() +
+                "\nPosition Type: " + this.positionType.getValue() +
+                "\nCore Competency: " + this.coreCompetency.getValue() + "\n";
     }
-
-//    @Override
-//    public String toString() {
-//        return "Job{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", employer=" + employer +
-//                ", location=" + location +
-//                ", positionType=" + positionType +
-//                ", coreCompetency=" + coreCompetency +
-//                '}';
-//    }
 }

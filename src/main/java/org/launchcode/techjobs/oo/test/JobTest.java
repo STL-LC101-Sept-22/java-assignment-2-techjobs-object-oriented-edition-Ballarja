@@ -56,7 +56,10 @@ public class JobTest {
     public void testToStringStartsAndEndsWithNewLine(){
         Job job6 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
+        //gets the beginning newline
         assertEquals(job6.toString().charAt(0),'\n');
+        // gets the end newline by subtracting one from it
+        assertEquals(job6.toString().charAt(job6.toString().length() -1),'\n');
     }
 
     @Test
@@ -73,11 +76,14 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField(){
         Job job8 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String jobResult = job8.toString();
 
-        assertTrue(job8.toString().contains("Employer: "));
-        assertTrue(job8.toString().contains("Location: Desert"));
-        assertTrue(job8.toString().contains("Position Type: Quality control"));
-        assertTrue(job8.toString().contains("Core Competency: Persistence"));
+        assertTrue(jobResult.contains("ID: " + job8.getId()));
+        assertTrue(jobResult.contains("Name: " + job8.getName()));
+        assertTrue(jobResult.contains("Employer: " + job8.getEmployer()));
+        assertTrue(jobResult.contains("Location: " + job8.getLocation()));
+        assertTrue(jobResult.contains("Position Type: Data not available"));
+        assertTrue(jobResult.contains("Core Competency: Data not available"));
 
     }
 
