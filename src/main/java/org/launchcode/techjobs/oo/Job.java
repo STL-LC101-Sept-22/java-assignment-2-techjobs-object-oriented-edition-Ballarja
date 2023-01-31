@@ -97,48 +97,65 @@ public class Job {
     @Override
     public String toString() {
 
-        String idLine = "ID: " + id;
-        String nameLine = "Name: " + name;
-        String employerLine = "Employer: " + employer;
-        String locationLine = "Location: " + location;
-        String positionTypeLine = "Position Type: " + positionType;
-        String coreCompetencyLine = "Core Competency: " + coreCompetency;
+        String idLine;
+        String nameLine;
+        String employerLine;
+        String locationLine;
+        String positionTypeLine;
+        String coreCompetencyLine;
+        int notNullCheck = 0;
+        String oops = "";
 
         if (name == null) {
-            nameLine = "Name: Data not available";
+            nameLine = "Data not available";
+            notNullCheck++;
         } else {
-            nameLine = "Name: " + name;
+            nameLine = name;
         }
 
         if (employer == null || employer.getValue() == null) {
-            employerLine = "Employer: Data not available";
+            employerLine = "Data not available";
+            notNullCheck++;
         } else {
-            employerLine = "Employer: " + employer;
+            employerLine = employer.getValue();
         }
         if (location == null || location.getValue() == null) {
-            locationLine = "Location: Data not available";
+            locationLine = "Data not available";
+            notNullCheck++;
         } else {
-            locationLine = "Location: " + location;
+            locationLine = location.getValue();
         }
         if (positionType == null || positionType.getValue() == null) {
-            positionTypeLine = "Position Type: Data not available";
+            positionTypeLine = "Data not available";
+            notNullCheck++;
         } else {
-            positionTypeLine = "Position Type: " + positionType;
+            positionTypeLine = positionType.getValue();
         }
 
         if (coreCompetency == null || coreCompetency.getValue() == null) {
-            coreCompetencyLine = "Core Competency: Data not available";
+            coreCompetencyLine = "Data not available";
+            notNullCheck++;
         } else {
-            coreCompetencyLine = "Core Competency: " + coreCompetency;
+            coreCompetencyLine = coreCompetency.getValue();
+        }
+        if(notNullCheck == 5){
+            oops = "OOPS! This job does not seem to exist.";
         }
 
 
-        return "\n" +
-                "ID: " + this.id +
-                "\nName: " + this.name +
-                "\nEmployer: " + this.employer.getValue() +
-                "\nLocation: " + this.location.getValue() +
-                "\nPosition Type: " + this.positionType.getValue() +
-                "\nCore Competency: " + this.coreCompetency.getValue() + "\n";
+       String jobTemplate =  "\n" +
+                "ID: " + getId() +
+                "\nName: " + nameLine +
+                "\nEmployer: " + employerLine +
+                "\nLocation: " + locationLine +
+                "\nPosition Type: " + positionTypeLine +
+                "\nCore Competency: " + coreCompetencyLine + "\n";
+
+        if (oops.equals("")){
+            return jobTemplate;
+        }
+        else{
+            return oops;
+        }
     }
 }
