@@ -98,42 +98,37 @@ public class Job {
     public String toString() {
 
         String idLine;
-        String nameLine;
-        String employerLine;
-        String locationLine;
-        String positionTypeLine;
-        String coreCompetencyLine;
+        String nameLine = "Data not available";
+        String employerLine = "Data not available";
+        String locationLine = "Data not available";
+        String positionTypeLine = "Data not available";
+        String coreCompetencyLine = "Data not available";
         int notNullCheck = 0;
         String oops = "";
 
         if (name == null) {
-            nameLine = "Data not available";
             notNullCheck++;
         } else {
             nameLine = name;
         }
 
         if (employer == null || employer.getValue() == null) {
-            employerLine = "Data not available";
             notNullCheck++;
         } else {
             employerLine = employer.getValue();
         }
         if (location == null || location.getValue() == null) {
-            locationLine = "Data not available";
             notNullCheck++;
         } else {
             locationLine = location.getValue();
         }
         if (positionType == null || positionType.getValue() == null) {
-            positionTypeLine = "Data not available";
             notNullCheck++;
         } else {
             positionTypeLine = positionType.getValue();
         }
 
         if (coreCompetency == null || coreCompetency.getValue() == null) {
-            coreCompetencyLine = "Data not available";
             notNullCheck++;
         } else {
             coreCompetencyLine = coreCompetency.getValue();

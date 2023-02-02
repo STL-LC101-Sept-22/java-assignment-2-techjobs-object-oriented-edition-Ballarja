@@ -75,14 +75,14 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField(){
-        Job job8 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-
+        Job job8 = new Job("Product tester", new Employer(null), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        System.out.println(job8.toString());
         assertTrue(job8.toString().contains("ID: " + job8.getId()));
-        assertTrue(job8.toString().contains("Name: " + job8.getName()));
-        assertTrue(job8.toString().contains("Employer:" + job8.getEmployer().getValue()));
-        assertTrue(job8.toString().contains("Location: Data not available"));
-        assertTrue(job8.toString().contains("Position Type: Data not available"));
-        assertTrue(job8.toString().contains("Core Competency: Data not available"));
+        assertTrue(job8.toString().contains("Name: Product tester"));
+        assertTrue(job8.toString().contains("Employer: Data not available"));
+        assertTrue(job8.toString().contains("Location: Desert"));
+        assertTrue(job8.toString().contains("Position Type: Quality control"));
+        assertTrue(job8.toString().contains("Core Competency: Persistence"));
 
 
     }
