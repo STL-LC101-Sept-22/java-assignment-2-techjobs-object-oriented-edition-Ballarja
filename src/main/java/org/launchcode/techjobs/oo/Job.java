@@ -106,29 +106,29 @@ public class Job {
         int notNullCheck = 0;
         String oops = "";
 
-        if (name == null) {
+        if (name == "") {
             notNullCheck++;
         } else {
             nameLine = name;
         }
 
-        if (employer == null || employer.getValue() == null) {
+        if (employer == null || employer.getValue() == "") {
             notNullCheck++;
         } else {
             employerLine = employer.getValue();
         }
-        if (location == null || location.getValue() == null) {
+        if (location == null || location.getValue() == "") {
             notNullCheck++;
         } else {
             locationLine = location.getValue();
         }
-        if (positionType == null || positionType.getValue() == null) {
+        if (positionType == null || positionType.getValue() == "") {
             notNullCheck++;
         } else {
             positionTypeLine = positionType.getValue();
         }
 
-        if (coreCompetency == null || coreCompetency.getValue() == null) {
+        if (coreCompetency == null || coreCompetency.getValue() == "") {
             notNullCheck++;
         } else {
             coreCompetencyLine = coreCompetency.getValue();
